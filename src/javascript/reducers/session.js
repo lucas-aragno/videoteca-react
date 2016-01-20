@@ -1,9 +1,9 @@
 import { LOG_IN, LOG_OUT, REGISTER } from '../actionTypes'
 
-export default function session (sessionToken = '' , action) {
+export default function session (state = '' , action) {
   switch (action.type) {
     case LOG_IN: {
-      return action.payload
+      return action.payload.sessionToken
       }
     default: {
       return state

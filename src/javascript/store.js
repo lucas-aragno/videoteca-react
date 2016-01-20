@@ -14,6 +14,7 @@ const createHistoryWithBaseName = (historyOptions) => {
     ...historyOptions
   })
 }
+
 let finalCreateStore = createStore
 
 finalCreateStore = compose(

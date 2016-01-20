@@ -37,7 +37,6 @@ class App extends Component {
 }
 
 function select (state) {
-  debugger
   return {
     router: state.router,
     sessionToken: state.sessionToken
