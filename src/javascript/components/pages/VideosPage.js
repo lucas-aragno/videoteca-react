@@ -3,10 +3,13 @@ import { connect } from 'react-redux'
 
 import loadMovies from '../../actions/loadMovies'
 
+import MovieList from '../MovieList'
+
 class VideosPage extends Component {
 
   static propTypes = {
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    movies: PropTypes.array
   }
 
   componentDidMount() {
@@ -14,10 +17,24 @@ class VideosPage extends Component {
   }
 
   render() {
+    const { movies } = this.props
     return (
-    <span>videos pelotudo</span>
+      <MovieList movies={movies} />
     )
   }
 }
 
-export default connect((state) => ({}))(VideosPage)
+function getMovies(state) {
+  if(state && state.movies)
+    return state.movies
+  else
+    return []
+}
+
+function select(state) {
+  return {
+    movies: getMovies(state) 
+  }
+}
+
+export default connect(select)(VideosPage)
