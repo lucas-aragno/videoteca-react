@@ -4,3 +4,4 @@ export const LOG_OUT = 'LOG_OUT'
 
 export const LOAD_MOVIES = 'LOAD_MOVIES'
 export const LOAD_MOVIE = 'LOAD_MOVIE'
+export const LOAD_FEATURED_MOVIE = 'LOAD_FEATURED_MOVIE'

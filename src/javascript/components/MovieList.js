@@ -13,7 +13,7 @@ export default class MovieList extends Component {
     return (
       <div className='container'>
         { movies.map((movie) => {
-            return <MoviePoster name={movie.title} poster={movie.image_url} movieId={movie.id} />
+            return <MoviePoster name={movie.title} poster={movie.image_url} movieId={movie.id} key={movie.id}/>
           })
         }
       </div>

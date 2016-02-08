@@ -2,24 +2,41 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import loadMovies from '../../actions/loadMovies'
+import loadFeaturedMovie from '../../actions/loadFeaturedMovie'
 
 import MovieList from '../MovieList'
+import FeaturedMovie from '../FeaturedMovie'
 
 class VideosPage extends Component {
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    movies: PropTypes.array
+    movies: PropTypes.array,
+    featuredMovie: PropTypes.object
   }
 
   componentDidMount() {
     this.props.dispatch(loadMovies())
+    this.props.dispatch(loadFeaturedMovie())
   }
-
+  
+  renderFeaturedMovie(featuredMovie) {
+    if (Object.keys(featuredMovie).length > 0)
+      return (
+        <FeaturedMovie banner={featuredMovie.image_url} />
+      )
+    else
+      return (
+        <div></div>
+      )
+  }
   render() {
-    const { movies } = this.props
+    const { movies, featuredMovie } = this.props
     return (
-      <MovieList movies={movies} />
+      <div>
+        <FeaturedMovie banner={featuredMovie.image_url} />
+        <MovieList movies={movies} />
+      </div>
     )
   }
 }
@@ -31,9 +48,18 @@ function getMovies(state) {
     return []
 }
 
+function getFeaturedMovie(state) {
+  if (state && state.featuredMovie)
+    return state.featuredMovie
+  else
+    return {}
+}
+
 function select(state) {
+  console.log(state)
   return {
-    movies: getMovies(state) 
+    movies: getMovies(state),
+    featuredMovie: getFeaturedMovie(state)
   }
 }
 

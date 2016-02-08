@@ -1,13 +1,23 @@
-  .movie-poster {
-    display: inline-block;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 80%;
-    height: 315px;
-    box-shadow: 3px 3px 15px;
-    overflow: hidden;
-    border-radius: 1px;
-    max-width: 315px;
-    margin: 10px;
-    cursor: pointer;
-  }
+.movie-poster {
+  display: inline-block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 80%;
+  height: 315px;
+  box-shadow: 3px 3px 15px;
+  overflow: hidden;
+  border-radius: 1px;
+  max-width: 315px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.featured-movie {
+  background-size: cover;
+  height: 500px;
+  box-shadow: : 3px 3px 15px;
+  border-radius: 1px;
+  margin: 10px;
+  cursor: pointer;
+}
+
