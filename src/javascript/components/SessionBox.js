@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import '../../stylesheets/session.css'
 
+import Captcha from './Captcha'
+
 import { LOG_IN, REGISTER } from '../actionTypes'
 
 class SessionBox extends Component {
@@ -41,6 +43,11 @@ class SessionBox extends Component {
     )
   }
 
+  renderCaptcha() {
+    const { isLogin } = this.state
+    return isLogin ? '' : (<Captcha />)
+  }
+
   buttonLabel() {
     const { isLogin } = this.state
     return isLogin ? 'Ingresar' : 'Registrate'
@@ -65,6 +72,7 @@ class SessionBox extends Component {
       {this.header()}
       <input ref='email' type="text" placeholder="Email" />
       <input ref='password' type="password" placeholder="Contraseña" />
+      { this.renderCaptcha() }
       <button onClick={::this.performAction}>
         { this.buttonLabel() }
       </button>

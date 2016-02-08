@@ -15,18 +15,6 @@ class App extends Component {
     }
   }
   
-  componentWillMount () {
-    const { sessionToken } = this.state
-    const { pathname } = this.props.router.location
-    if (sessionToken === '' && pathname !== 'login' ) {
-      window.location = '/login'
-    }
-  }
-
-  componentWillReceiveProps (nextProps) {
-    debugger
-  }
-
   render () {
     return (
       <div>

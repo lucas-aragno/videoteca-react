@@ -14,6 +14,7 @@
   "author": "laragno",
   "license": "MIT",
   "devDependencies": {
+    "axios": "^0.9.1",
     "babel": "^5.8.29",
     "babel-core": "^5.8.30",
     "babel-eslint": "^4.1.3",
@@ -24,8 +25,10 @@
     "cssnext-loader": "^1.0.1",
     "express": "^4.13.3",
     "history": "^1.9.1",
+    "jquery": "^2.2.0",
     "raw-loader": "^0.5.1",
     "react": "^0.14.6",
+    "react-dom": "^0.14.6",
     "react-redux": "^4.0.6",
     "react-router": "^1.0.0",
     "react-transform-catch-errors": "^1.0.1",
