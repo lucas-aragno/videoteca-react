@@ -1,0 +1,49 @@
+      <HoverComponent childNode={::this.getNode()} 
+                      hovered={this.state.hovered}
+                      duration={'1s'}
+                      originalHeight={'315px'}
+                      originalWidth={'315px'}
+                      newHeight={'400px'}
+                      newWidth={'400px'}
+        >
+        <div className="movie-poster" style={this.divStyle()} onMouseOver={::this.hover} onMouseLeave={::this.leave} >
+          <span> { title } </span>
+        </div>
+      </HoverComponent>
+
+
+
+        hover() {
+    this.setState({
+      hovered: true,
+      domNode: ReactDOM.findDOMNode(this)
+    })
+  }
+
+  leave() {
+    this.setState({
+      hovered: false,
+      domNode: ReactDOM.findDOMNode(this)
+    })
+  }
+
+  getNode() {
+    return this.state.domNode
+  }
+
+======== HOVER =========
+
+
+        <ImageChangeComponent
+          duration={'1s'}
+          childNode={::this.getNode()}
+          hovered={this.state.hovered}
+          originalSource={this.props.poster}
+          newSource={'https://scontent-gru2-1.xx.fbcdn.net/hphotos-xta1/v/t1.0-0/p480x480/12745605_10208703587412962_1124859955564194753_n.jpg?oh=6bde0e723a06ff9ddb0c16250decd17b&oe=57533F88'}
+        >
+          <div className="movie-poster" style={this.divStyle()} onMouseOver={::this.hover} onMouseLeave={::this.leave} >
+            <span> { title } </span>
+          </div>
+        </ImageChangeComponent>
+
+======== CHANGE IMAGE ===========

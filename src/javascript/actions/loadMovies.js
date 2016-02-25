@@ -28,6 +28,9 @@ export default function loadMovies () {
       .catch((response) => {
         dispatch({
           type: LOAD_MOVIES,
+          sequence: {
+            type: 'error'
+          },
           payload: new Error()
         })
       })

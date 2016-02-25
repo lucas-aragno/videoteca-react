@@ -28,6 +28,9 @@ export default function loadFeaturedMovie () {
       .catch((response) => {
         dispatch({
           type: LOAD_FEATURED_MOVIE,
+          sequence: {
+            type: 'error'
+          },
           payload: new Error()
         })
       })
