@@ -21,9 +21,10 @@ class VideosPage extends Component {
   }
   
   renderFeaturedMovie(featuredMovie) {
+    console.log(featuredMovie)
     if (Object.keys(featuredMovie).length > 0)
       return (
-        <FeaturedMovie banner={featuredMovie.image_url} />
+        <FeaturedMovie banner={featuredMovie.image_url} title={featuredMovie.title}/>
       )
     else
       return (
@@ -34,7 +35,7 @@ class VideosPage extends Component {
     const { movies, featuredMovie } = this.props
     return (
       <div>
-        <FeaturedMovie banner={featuredMovie.image_url} />
+        <FeaturedMovie banner={featuredMovie.image_url} title={featuredMovie.title}/>
         <MovieList movies={movies} />
       </div>
     )

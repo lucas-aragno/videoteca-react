@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM  from 'react-dom'
 import ImageChangeComponent from './animation/ImageChangeComponent'
 import HoverComponent from './animation/HoverComponent'
+import AppearComponent from './animation/AppearComponent'
 
 import '../../stylesheets/poster.css'
 
@@ -50,21 +51,35 @@ export default class MoviePoster extends Component {
     return this.state.hovered
   }
 
+  titleStyle() {
+    if(this.state.hovered) {
+      return {
+        display: 'block',
+        'transition': '1s'
+      }
+    }
+    else {
+      return {
+        display: 'none',
+        transition: '1s'
+      }
+    }
+  }
+
   render() {
     const { title } = this.props
     return (
-      <HoverComponent childNode={::this.getNode()} 
-                      hovered={::this.getHover()}
-                      duration={'1s'}
-                      newHeight={'400px'}
-                      newWidth={'400px'}
-                      originalHeight={'315px'}
-                      originalWidth={'315px'}
+        <ImageChangeComponent
+          duration={'1s'}
+          childNode={::this.getNode()}
+          animated={this.state.hovered}
+          originalSource={this.props.poster}
+          newSource={'http://vignette2.wikia.nocookie.net/yugioh/images/8/86/BlueEyesWhiteDragon-TF04-JP-VG.jpg/revision/latest?cb=20120501212944'}
         >
-        <div className="movie-poster" style={this.divStyle()} onMouseOver={::this.hover} onMouseLeave={::this.leave} >
-          <span> { title } </span>
-        </div>
-      </HoverComponent>
+          <div className="movie-poster" style={this.divStyle()} onMouseOver={::this.hover} onMouseLeave={::this.leave} >
+            <span className='movie-title' style={::this.titleStyle()}> { title } </span>
+          </div>
+        </ImageChangeComponent>
     )
   }
 }

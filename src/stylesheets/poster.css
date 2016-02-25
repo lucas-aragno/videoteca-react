@@ -10,14 +10,39 @@
   max-width: 500px;
   margin: 10px;
   cursor: pointer;
+  position: relative;
 }
 
 .featured-movie {
   background-size: cover;
+  position: relative;
   height: 500px;
   box-shadow: : 3px 3px 15px;
   border-radius: 1px;
   margin: 10px;
   cursor: pointer;
+}
+
+.featured-title {
+  color: white;
+  font-size: 4rem;
+  position: absolute;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  top: 70%;
+  height: 30%;
+  left: 0;
+  width: 100%;
+}
+
+.movie-title {
+  color: white;
+  font-size: 3rem;
+  position: absolute;
+  background-color: black;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  top: 60%;
+  height: 100%;
+  left: 0;
+  width: 100%;
 }
 
