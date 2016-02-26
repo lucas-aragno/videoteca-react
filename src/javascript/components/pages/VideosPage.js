@@ -20,23 +20,12 @@ class VideosPage extends Component {
     this.props.dispatch(loadFeaturedMovie())
   }
   
-  renderFeaturedMovie(featuredMovie) {
-    console.log(featuredMovie)
-    if (Object.keys(featuredMovie).length > 0)
-      return (
-        <FeaturedMovie banner={featuredMovie.image_url} title={featuredMovie.title}/>
-      )
-    else
-      return (
-        <div></div>
-      )
-  }
   render() {
-    const { movies, featuredMovie } = this.props
+    const { movies, featuredMovie, router } = this.props
     return (
       <div>
-        <FeaturedMovie banner={featuredMovie.image_url} title={featuredMovie.title}/>
-        <MovieList movies={movies} />
+        <FeaturedMovie banner={featuredMovie.image_url} title={featuredMovie.title} movieId={featuredMovie.id} router={router}/>
+        <MovieList movies={movies} router={router}/>
       </div>
     )
   }
@@ -57,7 +46,6 @@ function getFeaturedMovie(state) {
 }
 
 function select(state) {
-  console.log(state)
   return {
     movies: getMovies(state),
     featuredMovie: getFeaturedMovie(state)

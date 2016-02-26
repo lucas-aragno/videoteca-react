@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 class FeaturedMovie extends Component {
 
   static propTypes = {
     banner: PropTypes.string,
+    movieId: PropTypes.number,
     title: PropTypes.string
   };
 
@@ -50,10 +52,13 @@ class FeaturedMovie extends Component {
   }
 
   render() {
+    const { movieId } = this.props
     return (
-    <div className="featured-movie" style={this.divStyle()} onMouseOver={::this.hover} onMouseLeave={::this.leave}>
-      <span className='featured-title' style={::this.titleStyle()}> {this.props.title} </span>
-    </div>
+    <Link to={`/videos/${movieId}`}>
+      <div className="featured-movie" style={this.divStyle()} onMouseOver={::this.hover} onMouseLeave={::this.leave}>
+        <span className='featured-title' style={::this.titleStyle()}> {this.props.title} </span>
+      </div>
+    </Link>
     )
   }
 }

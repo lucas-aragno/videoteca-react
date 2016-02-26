@@ -13,7 +13,14 @@ export default function movies (state = [] , action) {
       }
       }
     case LOAD_MOVIE: {
-      return action.payload.movie
+      switch (action.sequence.type) {
+        case 'start':
+          return null
+        case 'done':
+          return action.payload.movie
+        default:
+          return state
+      }
       }
     default: {
       return state
