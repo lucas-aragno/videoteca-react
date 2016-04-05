@@ -17,7 +17,7 @@ export default function movies (state = [] , action) {
         case 'start':
           return null
         case 'done':
-          return action.payload.movie
+          return action.payload.movies
         default:
           return state
       }

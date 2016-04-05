@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import Youtube from 'react-youtube'
 
 import loadMovie from '../../actions/loadMovie'
 
@@ -11,15 +12,26 @@ class VideoPage extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(loadMovie())
+    const id = window.location.pathname.match(/\d+/)[0]
+    this.props.dispatch(loadMovie(id))
   }
-  
+
+  getOpts() {
+    const { width, height } = window.getComputedStyle(document.querySelector('body'))
+    return {
+      height: parseInt(height),
+      width: parseInt(1280)
+    }
+  }
+
   render() {
-    const { movie } = this.props
+    const { movies } = this.props
+    const movieId = movies.link.split('v=')[1]
     return (
-      <div>
-        hi
-      </div>
+      <Youtube
+        videoId={movieId}
+        opts={::this.getOpts()}
+      />
     )
   }
 }
