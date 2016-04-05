@@ -8,7 +8,7 @@ class VideoPage extends Component {
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    movie: PropTypes.object
+    movies: PropTypes.object
   }
 
   componentDidMount() {
@@ -51,7 +51,6 @@ function getFeaturedMovie(state) {
 }
 
 function select(state) {
-  console.log(state)
   return {
     movies: getMovies(state),
     featuredMovie: getFeaturedMovie(state)
